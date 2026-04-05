@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OBS Text Effects</title>
+    <title>OBS Text Effects Standart</title>
+    <link rel="shortcut icon" href="Icon.png" type="image/png" />
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
       rel="stylesheet"
@@ -716,17 +717,34 @@
           background-position: 300% 50%;
         }
       }
+      /* FIXED RAINBOW: Gradient text animation */
       .fx-rainbow {
+        background-image: linear-gradient(
+          90deg,
+          #ff0000,
+          #ff8800,
+          #ffff00,
+          #00ff00,
+          #00ffff,
+          #0000ff,
+          #ff00ff,
+          #ff0000
+        );
+        background-size: 400% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
         animation: fxRainbow 4s linear infinite;
       }
       @keyframes fxRainbow {
         0% {
-          filter: hue-rotate(0deg);
+          background-position: 0% 50%;
         }
         100% {
-          filter: hue-rotate(360deg);
+          background-position: 400% 50%;
         }
       }
+
       .fx-ice {
         animation: fxIce 3s ease-in-out infinite;
       }
@@ -845,19 +863,19 @@
           opacity: 1;
         }
       }
+      /* FIXED FADE IN: Simple fade in, no blink */
       .fx-fi {
-        animation: fxFI 5s ease-in-out infinite;
+        animation: fxFI 1s ease-out forwards;
       }
       @keyframes fxFI {
-        0%,
-        100% {
+        from {
           opacity: 0;
         }
-        15%,
-        85% {
+        to {
           opacity: 1;
         }
       }
+
       .fx-ms {
         animation: fxMS 1.2s ease-in-out both;
         clip-path: inset(0 100% 0 0);
@@ -1061,7 +1079,7 @@ Let's get started</textarea
                 <option value="rotate-in">Rotate In</option>
                 <option value="blur-in">Through Blur</option>
                 <option value="pixel-in">Through Pixels</option>
-                <option value="fade-in">Fade In / Out</option>
+                <option value="fade-in">Fade In</option>
                 <option value="mask-stripe">Mask Stripe</option>
                 <option value="zoom-in">Zoom In</option>
               </select>
